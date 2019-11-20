@@ -1,0 +1,125 @@
+/* Please Keep this font import at the very top of any CSS file */
+@charset "UTF-8";
+
+
+#cssmenu {
+  padding-top: 20px;
+  background-color: #333333;
+  margin-bottom: -100%; /* any large number will do */
+  padding-bottom: 100%; 
+}
+
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+}
+#cssmenu ul {
+  position: relative;
+  z-index: 597;
+  float: left;
+  height: 100%;
+}
+#cssmenu ul li {
+  float: left;
+  min-height: 1px;
+  line-height: 1em;
+  vertical-align: middle;
+  position: relative;
+}
+#cssmenu ul li.hover,
+#cssmenu ul li:hover {
+  position: relative;
+  z-index: 599;
+  cursor: pointer;
+}
+#cssmenu ul ul {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  z-index: 598;
+  width: 100%;
+}
+#cssmenu ul ul li {
+  float: none;
+}
+#cssmenu ul ul ul {
+  top: -2px;
+  right: 0;
+}
+#cssmenu ul li:hover > ul {
+  visibility: visible;
+}
+#cssmenu ul ul {
+  top: 1px;
+  left: 99%;
+}
+#cssmenu ul li {
+  float: none;
+}
+#cssmenu ul ul {
+  margin-top: 1px;
+}
+#cssmenu ul ul li {
+  font-weight: normal;
+}
+
+
+
+/* Custom CSS Styles */
+
+#cssmenu {
+  height: 100%;
+  max-width: 250px;
+  width: 25%;
+  background: #333333;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  zoom: 1;
+  font-size: 12px;
+}
+
+#cssmenu:before {
+  content: '';
+  display: block;
+  height: 100%;
+}
+#cssmenu:after {
+  content: '';
+  display: table;
+  clear: both;
+  height: 100%;
+}
+
+#cssmenu p {
+  display: block;
+  padding: 15px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: max-width;
+}
+
+#cssmenu > ul {
+  
+}
+
+#cssmenu > ul > li > p {
+  border-right: 4px solid #1b9bff;
+  color: #ffffff;
+}
+#cssmenu > ul > li > p:hover {
+  color: #ffffff;
+}
+#cssmenu > ul > li.active p {
+  background: #1b9bff;
+}
+#cssmenu > ul > li p:hover,
+#cssmenu > ul > li:hover p {
+  background: #1b9bff;
+}

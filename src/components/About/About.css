@@ -1,0 +1,7 @@
+#aboutcard {
+	padding: 30px 30px;
+	background-color: #ffffff;
+	z-index: -1;
+	width: 850px;
+	margin: 4% 10%;
+}
