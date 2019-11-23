@@ -1,6 +1,5 @@
-import React from 'react';
+import React , {useState} from 'react';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -36,77 +35,346 @@ const useStyles2 = makeStyles({
   },
 })
 
-export default function Submit() {
+const gen = [
+  {
+    value: 'M',
+    label: 'Male',
+  },
+  {
+    value: 'F',
+    label: 'Female',
+  },
+];
+
+const bgroup = [
+  {
+    value: 'A+',
+    label: 'A+',
+  },
+  {
+    value: 'A-',
+    label: 'A-',
+  },
+  {
+    value: 'B+',
+    label: 'B+',
+  },
+  {
+    value: 'B-',
+    label: 'B-',
+  },
+  {
+    value: 'O+',
+    label: 'O+',
+  },
+  {
+    value: 'O-',
+    label: 'O-',
+  },
+  {
+    value: 'AB+',
+    label: 'AB+',
+  },
+  {
+    value: 'AB-',
+    label: 'AB-',
+  },
+  
+  
+];
+
+const mth = [
+  {
+    value: 'jan',
+    label: 'January',
+  },
+  {
+    value: 'feb',
+    label: 'February',
+  },
+  {
+    value: 'mar',
+    label: 'March',
+  },
+  {
+    value: 'apr',
+    label: 'April',
+  },
+  {
+    value: 'may',
+    label: 'May',
+  },
+  {
+    value: 'jun',
+    label: 'June',
+  },
+  {
+    value: 'jul',
+    label: 'July',
+  },
+  {
+    value: 'aug',
+    label: 'August',
+  },
+  
+  {
+    value: 'sep',
+    label: 'September',
+  },
+  {
+    value: 'oct',
+    label: 'October',
+  },
+  {
+    value: 'nov',
+    label: 'November',
+  },
+  {
+    value: 'dec',
+    label: 'December',
+  },
+  
+];
+export default function Submit(props) {
   const classes = useStyles();
   const classes2 = useStyles2();
 
+// onChange={e => {
+//   const val = e.target.value;
+//   setMessage(prevState => {
+//     return { ...prevState, message: val }
+//   });
+// }}
+
+  const [patient, setPatient] = useState({
+    name: '',
+    gender: 'M',
+    age: 0,
+    locality: '',
+    bloodgroup: 'a+',
+    antigen1: '',
+    antigen2: '',
+    symptom1: '',
+    symptom2: '',
+    medicine: '',
+    month: 'jan',
+  });
+
+  const handleSubmit = (event) => {
+    console.log(patient)
+    fetch('http://localhost:3000/submit', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(patient)
+    })
+      .then(response => response.json())
+   }
+
+
   return (
     <Card align='center' id='submitcard' className={classes2.card}>
-      <Typography variant="h4" gutterBottom>
-        Patient Details
-      </Typography>
+      <h1>Patient Details</h1>
       <Grid container spacing={3}>
+        <Grid item xs={12} >
+          <TextField
+            required
+            onChange={ e => { 
+              const val = e.target.value;
+              setPatient( prevState => { return { ...prevState , name: val } }); 
+            } }
+            id="name"
+            name="name"
+            label="Name"
+            fullWidth
+            autoComplete="name"
+          />
+        </Grid>
+
+        <Grid item xs={3}>
+        <TextField
+          id="age"
+          label="Age"
+          name="age"
+          type="number"
+          onChange={ e => { 
+              const val = e.target.value;
+              setPatient( prevState => { return { ...prevState , age: val } }); 
+            } }
+          
+        />
+        </Grid>
+
+
+        <Grid item xs={3}> 
+             <TextField
+            id="gender"
+            select
+            label="Gender"
+            onChange={ e => { 
+              const val = e.target.value;
+              setPatient( prevState => { return { ...prevState , gender: val } }); 
+            } }
+            className={classes.textField}
+            value={patient.gender}
+            SelectProps={{
+              native: true,
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+            // helperText="Please select your currency"
+            // margin="normal"
+             >
+            {gen.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </TextField>
+        </Grid>
+       
+
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="firstName"
-            name="firstName"
-            label="First name"
+            id="locality"
+            name="locality"
+            label="locality"
+            onChange={ e => { 
+              const val = e.target.value;
+              setPatient( prevState => { return { ...prevState , locality: val } }); 
+            } }
             fullWidth
-            autoComplete="fname"
+            autoComplete="locality"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="lastName"
-            name="lastName"
-            label="Last name"
+            id="Antigen 1"
+            name="Antigen 1"
+            label="Antigen 1"
+            onChange={ e => { 
+              const val = e.target.value;
+              setPatient( prevState => { return { ...prevState , antigen1: val } }); 
+            } }
             fullWidth
-            autoComplete="lname"
           />
         </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="Antigen 2"
+            name="Antigen 2"
+            label="Antigen 2"
+            onChange={ e => { 
+              const val = e.target.value;
+              setPatient( prevState => { return { ...prevState , antigen2: val } }); 
+            } }
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="symptom 1"
+            name="symptom 1"
+            onChange={ e => { 
+              const val = e.target.value;
+              setPatient( prevState => { return { ...prevState , symptom1: val } }); 
+            } }
+            label="symptom 1"
+            fullWidth
+            autoComplete="symptom 1"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="symptom 2"
+            name="symptom 2"
+            onChange={ e => { 
+              const val = e.target.value;
+              setPatient( prevState => { return { ...prevState , symptom2: val } }); 
+            } }
+            label="symptom 2"
+            fullWidth
+            autoComplete="symptom 2"
+          />
+        </Grid>
+
+         <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            label="Medicine"
+            id="medicine"
+            fullWidth
+            onChange={ e => { 
+              const val = e.target.value;
+              setPatient( prevState => { return { ...prevState , medicine: val } }); 
+            } }
+          />
+        </Grid>
+
+        <Grid item xs={3} sm={3}>
+          <TextField
+            id="month"
+            select
+            label="Month"
+            onChange={ e => { 
+              const val = e.target.value;
+              setPatient( prevState => { return { ...prevState , month: val } }); 
+            } }
+            className={classes.textField}
+            value={patient.month}
+            SelectProps={{
+              native: true,
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+            // helperText="Please select your currency"
+      
+             >
+            {mth.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </TextField>
+        </Grid>
+       
+       <Grid item xs={2} sm={2}> 
+             <TextField
+            id="bgroup"
+            select
+            label="BloodGroup"
+            onChange={ e => { 
+              const val = e.target.value;
+              setPatient( prevState => { return { ...prevState , bloodgroup: val } }); 
+            } }
+            className={classes.textField}
+            value={patient.bloodGroup}
+            // margin="normal"
+            SelectProps={{
+              native: true,
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+            // helperText="Please select your currency"
+            // margin="normal"
+             >
+            {bgroup.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </TextField>
+        </Grid>
+
         <Grid item xs={12}>
-          <TextField
-            required
-            id="Disease"
-            name="Disease"
-            label="Disease"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            id="medicationUsed"
-            name="medicationUsed"
-            label="Medication Used"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="city"
-            name="city"
-            label="City"
-            fullWidth
-            autoComplete="billing address-level2"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField id="state" name="state" label="State/Province/Region" fullWidth />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            placeholder="Date"
-            type='date'
-            id="date"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-           <Button variant="outlined" color="primary" className={classes.button}>
+           <Button variant="outlined" color="primary" onClick={handleSubmit} className={classes.button}>
              Submit
           </Button>
         </Grid>

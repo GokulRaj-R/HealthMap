@@ -1,3 +1,22 @@
-#homecard {
-	max-width: 1024px;
+.homemain {
+	margin: 10% 10%;
+	margin-bottom: 10%;
+	 max-width: 100vh;
+	display: flex;
+	 align-content: center;
+
+}
+
+/*
+#homemain > canvas {
+	background: #ffffff;
+	margin: 3% 3%;
+	padding-top : 30px;
+	padding-bottom : 30px;
+	padding-left : 10px;
+}*/
+
+#search {
+	margin-left: 420px;
+	/*background:#ffffff;*/
 }

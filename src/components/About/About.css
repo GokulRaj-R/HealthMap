@@ -4,4 +4,19 @@
 	z-index: -1;
 	width: 850px;
 	margin: 4% 10%;
+	
+}
+
+#aboutcard > p {
+	line-height: 1.8;
+	font-size: 1.125rem;
+	font-family: MerriWeather;
+}
+
+#abouth {
+	line-height: 1.8;
+	font-size: 3rem;
+	font-family: MerriWeather;
+	margin-top : 0px;
+	color: rgba(0,0,0,0.7);
 }

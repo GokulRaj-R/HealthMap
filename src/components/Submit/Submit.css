@@ -1,7 +1,17 @@
 #submitcard {
-	padding: 50px 50px;
+	padding: 10px 50px;
 	width: 800px;
 	background-color: #ffffff;
 	z-index: -1;
 	margin : 4% 10%;
+}
+
+#submitcard > h1 {
+	padding-top:25px;
+	padding-bottom: 0px;
+	line-height: 1.8;
+	font-size: 2rem;
+	font-family: MerriWeather;
+	margin-top : 0px;
+	color: rgba(0,0,0,0.7);
 }

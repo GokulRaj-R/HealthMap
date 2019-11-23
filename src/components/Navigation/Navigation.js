@@ -6,12 +6,12 @@ const Navigation = ({RouteChange , isSignedIn }) => {
         <nav style={{display: 'flex'}}>
         	<div id='navlogo'> <p className='navp' onClick={ () => {
         		RouteChange('signin')
-        	 }}>HealthMap</p> </div>
+        	 }}><strong>HealthMap</strong></p> </div>
 
         	{isSignedIn === true ? <p className='navp' onClick={ () => RouteChange('signout') }>Sign Out</p> : 
         	<div>
-        	<p className='navp' onClick={ () => RouteChange('signin') }>Sign In</p>
-	        <p className='navp' onClick={ () => RouteChange('signup') }>Register</p>
+        	<p className='navp' onClick={ () => RouteChange('signin') }><strong>Sign In</strong></p>
+	        <p className='navp' onClick={ () => RouteChange('signup') }><strong>Register</strong></p>
 	        </div>}
         </nav>
       )

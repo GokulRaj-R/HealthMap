@@ -11,27 +11,77 @@ import './App.css';
 const initialState = {
   route: 'home',
   isSignedIn: true,
-  page: 'about',
-  user: {
-    id: '',
-    name: '',
-    email: '',
-  }
+  page: 'home',
 }
 
 
-const params={   
-particles: {
-    "number": {
-              "value": 70
-          },
-    "size": {
-              "value": 10
-          },
-    "line_linked":{
-      color: "#000000",
-    }
-}}
+// const params={   
+// particles: {
+//     "number": {
+//               "value": 100
+//           },
+//     "size": {
+//               "value": 0
+//           },
+//     "line_linked":{
+//       color: "#000000",
+//     }
+// }}
+
+
+const params = {
+                "particles": {
+                    "number": {
+                        "value": 150,
+                        "density": {
+                            "enable": true,
+                            "value_area": 1500.4120608655228
+                        }
+                    },
+                    "color": {
+                        "value": "#000000"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 3,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 10
+                        },
+                    },
+                    // "opacity": {
+                    //     "value": 0.4008530152163807,
+                    //     "random": false,
+                    //     "anim": {
+                    //         "enable": false,
+                    //         "speed": 1,
+                    //         "opacity_min": 0.1,
+                    //         "sync": false
+                    //     }
+                    // // },
+                    // "size": {
+                    //     "value": 1.5,
+                    //     "random": true,
+                    //     "anim": {
+                    //         "enable": false,
+                    //         "speed": 40,
+                    //         "size_min": 0.1,
+                    //         "sync": false
+                    //     }
+                    // },
+                    "line_linked": {
+                        // "enable": true,
+                        // "distance": 100,
+                        "color": "#000000",
+                        // "opacity": 0.3687847739990702,
+                        // "width": 0.6413648243462091
+                    },
+                    
+                }
+               
+             }
 
 
 class App extends Component {
@@ -59,7 +109,7 @@ class App extends Component {
     return (
       <div>
         {( route === 'home' && isSignedIn === true ) ? 
-            <div className='dashb'>
+            <div className='dashb' >
             <Sidebar PageChange={this.PageChange} />
             <Home page={this.state.page} /> 
             </div>

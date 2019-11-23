@@ -31,22 +31,23 @@ class SignUp extends Component {
   }
 
   onSubmitSignIn = () => {
-    // fetch('http://localhost:3000/signup', {
-    //   method: 'post',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({
-    //     name: this.state.name,
-    //     email: this.state.email,
-    //     password: this.state.password
-    //   })
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     if (data) {
-    //       this.props.onRouteChange('signin');
-    //     }
-    //   })
-    this.props.RouteChange('signin');
+    if( !this.state.email || !this.state.password || !this.state.name )
+      return ;
+    fetch('http://localhost:3000/signup', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          this.props.RouteChange('signin');
+        }
+      })
   }
 
   render() {
@@ -72,6 +73,11 @@ class SignUp extends Component {
                   label="Name"
                   autoFocus
                   onChange={this.onNameChange}
+                  onKeyPress={ event => {
+                    if( event.key === 'Enter' )
+                      this.onSubmitSignIn()
+                  }
+                }
                 />
               </Grid>
               <Grid item xs={12}>
@@ -84,6 +90,11 @@ class SignUp extends Component {
                   name="email"
                   autoComplete="email"
                   onChange={this.onEmailChange}
+                  onKeyPress={ event => {
+                    if( event.key === 'Enter' )
+                      this.onSubmitSignIn()
+                  }
+                }
                 />
               </Grid>
               <Grid item xs={12}>
@@ -97,6 +108,11 @@ class SignUp extends Component {
                   id="password"
                   autoComplete="current-password"
                   onChange={this.onPasswordChange}
+                  onKeyPress={ event => {
+                    if( event.key === 'Enter' )
+                      this.onSubmitSignIn()
+                  }
+                }
                 />
               </Grid>
             </Grid>

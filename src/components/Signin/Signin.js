@@ -28,21 +28,22 @@ class SignIn extends Component {
   }
 
   onSubmitSignIn = () => {
-    // fetch('http://localhost:3000/signin', {
-    //   method: 'post',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({
-    //     email: this.state.signInEmail,
-    //     password: this.state.signInPassword
-    //   })
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     if (data) {
-    //       this.props.RouteChange('home');
-    //     }
-    //   })
-    this.props.RouteChange('home');
+    fetch('http://localhost:3000/signin', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: this.state.signInEmail,
+        password: this.state.signInPassword
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          this.props.RouteChange('home');
+        }
+      })
+
+    this.setState({signInEmail:'',signInPassword:''});
   }
 
   render() {
@@ -68,6 +69,11 @@ class SignIn extends Component {
               autoComplete="email"
               onChange={this.onEmailChange}
               autoFocus
+              onKeyPress={ event => {
+                    if( event.key === 'Enter' )
+                      this.onSubmitSignIn()
+                  }
+                }
             />
             <TextField
               variant="outlined"
@@ -79,6 +85,11 @@ class SignIn extends Component {
               type="password"
               id="password"
               onChange={this.onPasswordChange}
+              onKeyPress={event => {
+                if (event.key === 'Enter') {
+                  this.onSubmitSignIn();
+                }
+              }}
               autoComplete="current-password"
             />
             <div style={{padding: '20px 0px 0px 0px'}}>

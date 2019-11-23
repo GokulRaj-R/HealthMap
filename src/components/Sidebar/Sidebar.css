@@ -6,7 +6,8 @@
   padding-top: 20px;
   background-color: #333333;
   margin-bottom: -100%; /* any large number will do */
-  padding-bottom: 100%; 
+  padding-bottom: 100%;
+  min-width:35vh; 
 }
 
 #cssmenu ul,
