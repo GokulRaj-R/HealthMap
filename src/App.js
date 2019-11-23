@@ -11,7 +11,7 @@ import './App.css';
 const initialState = {
   route: 'signin',
   isSignedIn: false,
-  page: 'submit',
+  page: 'home',
 }
 
 
@@ -87,25 +87,52 @@ const params = {
 class App extends Component {
   constructor() {
     super();
-    this.state = initialState;
+    this.state = {
+        route: localStorage.getItem('route'),
+         isSignedIn: ( localStorage.getItem('signedin') === 'true' ),
+         page: localStorage.getItem('page'),
+     }
+
+    console.log(localStorage.getItem('signedin'));
+    console.log(localStorage.getItem('route'));
+
   }
 
   RouteChange = (route) => {
-    if( route === 'signout' )
+    if( route === 'signout' ){
       this.setState(initialState);
-    else if( route === 'home' )
+      localStorage.setItem('signedin',false);
+      localStorage.setItem('route','signin'); 
+       localStorage.setItem('page','home'); 
+
+
+     }
+    else if( route === 'home' ){
       this.setState({isSignedIn : true});
+      localStorage.setItem('signedin',true);
+      localStorage.setItem('route','home');
+      localStorage.setItem('page','home'); 
+      
+          
+  }
     this.setState({route: route});
   }
  
   PageChange = (page) => {
     this.setState({page:page});
-    if( page === 'signout' )
+    if( page === 'signout' ){
       this.setState(initialState);
+        localStorage.setItem('signedin',false);
+      localStorage.setItem('route','signin'); 
+      localStorage.setItem('route','home'); 
   }
-
+      
+  }
+   
   render() {
+    
     const { route , isSignedIn } = this.state;
+    console.log(this.state);
     return (
       <div>
         {( route === 'home' && isSignedIn === true ) ? 
@@ -117,7 +144,7 @@ class App extends Component {
             <div id='sign'>
             <Navigation RouteChange={this.RouteChange} isSignedIn={isSignedIn}/>
             <Particles className='part' params={params} />
-            { route === 'signin' ? <SignIn RouteChange={this.RouteChange} /> : <SignUp RouteChange={this.RouteChange} /> }
+            { route === 'signup' ? <SignUp RouteChange={this.RouteChange} /> : <SignIn RouteChange={this.RouteChange} /> }
             </div>
         }
       </div>
