@@ -48,6 +48,12 @@ class SignUp extends Component {
           this.props.RouteChange('signin');
         }
       })
+
+      this.setState({
+      signUpName: '',
+      signUnEmail: '',
+      signUnPassword: ''
+    });
   }
 
   render() {
@@ -72,6 +78,7 @@ class SignUp extends Component {
                   id="Name"
                   label="Name"
                   autoFocus
+                  value={this.state.name}
                   onChange={this.onNameChange}
                   onKeyPress={ event => {
                     if( event.key === 'Enter' )
@@ -89,6 +96,7 @@ class SignUp extends Component {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  value={this.state.signUpEmail}
                   onChange={this.onEmailChange}
                   onKeyPress={ event => {
                     if( event.key === 'Enter' )
@@ -106,6 +114,7 @@ class SignUp extends Component {
                   label="Password"
                   type="password"
                   id="password"
+                  value={this.state.signUpPassword}
                   autoComplete="current-password"
                   onChange={this.onPasswordChange}
                   onKeyPress={ event => {

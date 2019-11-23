@@ -135,6 +135,7 @@ const mth = [
   },
   
 ];
+
 export default function Submit(props) {
   const classes = useStyles();
   const classes2 = useStyles2();
@@ -145,6 +146,20 @@ export default function Submit(props) {
 //     return { ...prevState, message: val }
 //   });
 // }}
+  
+  const istate = {
+    name: '',
+    gender: 'M',
+    age: 0,
+    locality: '',
+    bloodgroup: 'a+',
+    antigen1: '',
+    antigen2: '',
+    symptom1: '',
+    symptom2: '',
+    medicine: '',
+    month: 'jan',
+  };
 
   const [patient, setPatient] = useState({
     name: '',
@@ -168,6 +183,8 @@ export default function Submit(props) {
       body: JSON.stringify(patient)
     })
       .then(response => response.json())
+
+    setPatient(istate);
    }
 
 
@@ -185,6 +202,7 @@ export default function Submit(props) {
             id="name"
             name="name"
             label="Name"
+            value={patient.name}
             fullWidth
             autoComplete="name"
           />
@@ -195,6 +213,7 @@ export default function Submit(props) {
           id="age"
           label="Age"
           name="age"
+           value={patient.age}
           type="number"
           onChange={ e => { 
               const val = e.target.value;
@@ -240,6 +259,7 @@ export default function Submit(props) {
             id="locality"
             name="locality"
             label="locality"
+             value={patient.locality}
             onChange={ e => { 
               const val = e.target.value;
               setPatient( prevState => { return { ...prevState , locality: val } }); 
@@ -254,6 +274,7 @@ export default function Submit(props) {
             id="Antigen 1"
             name="Antigen 1"
             label="Antigen 1"
+             value={patient.antigen1}
             onChange={ e => { 
               const val = e.target.value;
               setPatient( prevState => { return { ...prevState , antigen1: val } }); 
@@ -267,6 +288,7 @@ export default function Submit(props) {
             id="Antigen 2"
             name="Antigen 2"
             label="Antigen 2"
+             value={patient.antigen2}
             onChange={ e => { 
               const val = e.target.value;
               setPatient( prevState => { return { ...prevState , antigen2: val } }); 
@@ -279,6 +301,7 @@ export default function Submit(props) {
             required
             id="symptom 1"
             name="symptom 1"
+             value={patient.symptom1}
             onChange={ e => { 
               const val = e.target.value;
               setPatient( prevState => { return { ...prevState , symptom1: val } }); 
@@ -293,6 +316,7 @@ export default function Submit(props) {
             required
             id="symptom 2"
             name="symptom 2"
+             value={patient.symptom2}
             onChange={ e => { 
               const val = e.target.value;
               setPatient( prevState => { return { ...prevState , symptom2: val } }); 
@@ -308,6 +332,7 @@ export default function Submit(props) {
             required
             label="Medicine"
             id="medicine"
+             value={patient.medicine}
             fullWidth
             onChange={ e => { 
               const val = e.target.value;

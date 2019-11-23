@@ -9,9 +9,9 @@ import Particles from 'react-particles-js';
 import './App.css';
 
 const initialState = {
-  route: 'home',
-  isSignedIn: true,
-  page: 'home',
+  route: 'signin',
+  isSignedIn: false,
+  page: 'submit',
 }
 
 

@@ -18,7 +18,6 @@ class SignIn extends Component {
     }
   }
 
-
   onEmailChange = (event) => {
     this.setState({signInEmail: event.target.value})
   }
@@ -66,6 +65,7 @@ class SignIn extends Component {
               id="email"
               label="Email Address"
               name="email"
+              value={this.state.signInEmail}
               autoComplete="email"
               onChange={this.onEmailChange}
               autoFocus
@@ -83,6 +83,7 @@ class SignIn extends Component {
               name="password"
               label="Password"
               type="password"
+              value={this.state.signInPassword}
               id="password"
               onChange={this.onPasswordChange}
               onKeyPress={event => {
