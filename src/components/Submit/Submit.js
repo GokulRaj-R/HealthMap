@@ -155,7 +155,7 @@ export default function Submit(props) {
     bloodgroup: 'a+',
     antigen1: '',
     antigen2: '',
-    symptom1: '',
+    disease: '',
     symptom2: '',
     medicine: '',
     month: 'jan',
@@ -169,7 +169,7 @@ export default function Submit(props) {
     bloodgroup: 'a+',
     antigen1: '',
     antigen2: '',
-    symptom1: '',
+    disease: '',
     symptom2: '',
     medicine: '',
     month: 'jan',
@@ -299,16 +299,16 @@ export default function Submit(props) {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="symptom 1"
-            name="symptom 1"
-             value={patient.symptom1}
+            id="Disease"
+            name="Disease"
+             value={patient.disease}
             onChange={ e => { 
               const val = e.target.value;
-              setPatient( prevState => { return { ...prevState , symptom1: val } }); 
+              setPatient( prevState => { return { ...prevState , disease: val } }); 
             } }
-            label="symptom 1"
+            label="Disease"
             fullWidth
-            autoComplete="symptom 1"
+            autoComplete="Disease"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
