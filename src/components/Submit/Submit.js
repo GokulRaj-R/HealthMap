@@ -140,13 +140,6 @@ export default function Submit(props) {
   const classes = useStyles();
   const classes2 = useStyles2();
 
-// onChange={e => {
-//   const val = e.target.value;
-//   setMessage(prevState => {
-//     return { ...prevState, message: val }
-//   });
-// }}
-  
   const istate = {
     name: '',
     gender: 'M',
@@ -241,8 +234,6 @@ export default function Submit(props) {
                 className: classes.menu,
               },
             }}
-            // helperText="Please select your currency"
-            // margin="normal"
              >
             {gen.map(option => (
               <option key={option.value} value={option.value}>
@@ -358,7 +349,6 @@ export default function Submit(props) {
                 className: classes.menu,
               },
             }}
-            // helperText="Please select your currency"
       
              >
             {mth.map(option => (
@@ -387,8 +377,6 @@ export default function Submit(props) {
                 className: classes.menu,
               },
             }}
-            // helperText="Please select your currency"
-            // margin="normal"
              >
             {bgroup.map(option => (
               <option key={option.value} value={option.value}>

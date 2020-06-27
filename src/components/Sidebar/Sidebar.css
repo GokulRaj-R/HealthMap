@@ -1,11 +1,9 @@
-/* Please Keep this font import at the very top of any CSS file */
 @charset "UTF-8";
-
 
 #cssmenu {
   padding-top: 20px;
   background-color: #333333;
-  margin-bottom: -100%; /* any large number will do */
+  margin-bottom: -100%; 
   padding-bottom: 100%;
   min-width:35vh; 
 }
@@ -70,10 +68,6 @@
 #cssmenu ul ul li {
   font-weight: normal;
 }
-
-
-
-/* Custom CSS Styles */
 
 #cssmenu {
   height: 100%;
