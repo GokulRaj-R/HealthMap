@@ -14,21 +14,6 @@ const initialState = {
   page: 'home',
 }
 
-
-// const params={   
-// particles: {
-//     "number": {
-//               "value": 100
-//           },
-//     "size": {
-//               "value": 0
-//           },
-//     "line_linked":{
-//       color: "#000000",
-//     }
-// }}
-
-
 const params = {
                 "particles": {
                     "number": {
@@ -51,32 +36,8 @@ const params = {
                             "nb_sides": 10
                         },
                     },
-                    // "opacity": {
-                    //     "value": 0.4008530152163807,
-                    //     "random": false,
-                    //     "anim": {
-                    //         "enable": false,
-                    //         "speed": 1,
-                    //         "opacity_min": 0.1,
-                    //         "sync": false
-                    //     }
-                    // // },
-                    // "size": {
-                    //     "value": 1.5,
-                    //     "random": true,
-                    //     "anim": {
-                    //         "enable": false,
-                    //         "speed": 40,
-                    //         "size_min": 0.1,
-                    //         "sync": false
-                    //     }
-                    // },
-                    "line_linked": {
-                        // "enable": true,
-                        // "distance": 100,
+                   "line_linked": {
                         "color": "#000000",
-                        // "opacity": 0.3687847739990702,
-                        // "width": 0.6413648243462091
                     },
                     
                 }

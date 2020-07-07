@@ -3,9 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Submit from '../Submit/Submit';
 import About from '../About/About';
-
 import {Bar , Pie , Line} from 'react-chartjs-2';
-
 import './Home.css'
 
 const useStyles = makeStyles(theme => ({
@@ -22,20 +20,6 @@ const useStyles = makeStyles(theme => ({
     width: 200,
   },
 }));
-
-// const handleGenState = () => {
-//     fetch('http://localhost:3000/gender', {
-//       method: 'post',
-//       headers: {'Content-Type': 'application/json'},
-//       body: JSON.stringify('antigen1')
-//     })
-//       .then(response => response.json())
-//       .then( data => {
-      
-//         console.log(data);
-//           return data;
-//       })
-//    }
 
 export default function Home({page}) {
   const classes = useStyles();

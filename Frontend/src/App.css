@@ -1,7 +1,5 @@
 .App {
   text-align: center;
- /* max-height:100vh;
-  max-width:100vh;*/
 }
 
 .App-logo {
@@ -43,5 +41,4 @@
 
 body {
   background-color: #eeeee7;
-  /*max-width: 100vh;*/
 }
